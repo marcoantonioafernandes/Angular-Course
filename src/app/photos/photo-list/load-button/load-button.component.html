@@ -1,0 +1,9 @@
+<div class="text-center">
+    <button class="btn btn-primary" *ngIf="hasMore; else varTemplate">Load more</button>
+</div>
+
+<!--Para utilizar um if else no angular é necessário que no else o conteúdo esteja dentro de um ngTemplate com uma variável que identifica esse template
+que basicamente é uma variável que representa esse template. Podemos fazer isso para outras tags-->
+<ng-template #varTemplate>
+    <p class="text-center text-muted">No more data to load</p>
+</ng-template>
