@@ -14,7 +14,7 @@ import { PhotoService } from '../photo/photo.service';
 export class PhotoListComponent implements OnInit {
 
   photos: Photo[] = [];
-  filter:string = "";
+  filter:string = '';
   hasMore:boolean = true;
   currentPage: number = 1;
   userName = '';
@@ -42,6 +42,11 @@ export class PhotoListComponent implements OnInit {
         this.hasMore = true;
       }
     })
+  }
+
+
+  mostraValorFilter(){
+    console.log("Filter => ", this.filter);
   }
 
 }

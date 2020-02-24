@@ -1,40 +1,40 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router'
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
-import { PhotoListComponent } from './photos/photo-list/photo-list.component';
-import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
-import { NotFoundComponent } from './errors/not-found/not-found.component';
-import { PhotoListResolve } from './photos/photo-list/photo-list.resolve';
-
+import { PhotoListComponent } from "./photos/photo-list/photo-list.component";
+import { PhotoFormComponent } from "./photos/photo-form/photo-form.component";
+import { NotFoundComponent } from "./errors/not-found/not-found.component";
+import { PhotoListResolve } from "./photos/photo-list/photo-list.resolve";
+import { SignInComponent } from "./home/signin/signin.component";
 
 const routes: Routes = [
-   { 
-       path:'user/:userName', 
-       component: PhotoListComponent,
-       // O componente terá o acesso a photos como resultado do PhotoListResolve
-       resolve: {
-           photos: PhotoListResolve
-       }
-    },
-   { 
-       path:'p/add', 
-       component: PhotoFormComponent 
-    },
-   { 
-       path:'**', 
-       component: NotFoundComponent 
+  {
+    path: "",
+    component: SignInComponent
+  },
+  {
+    path: "user/:userName",
+    component: PhotoListComponent,
+    // O componente terá o acesso a photos como resultado do PhotoListResolve
+    resolve: {
+      photos: PhotoListResolve
     }
+  },
+  {
+    path: "p/add",
+    component: PhotoFormComponent
+  },
+  {
+    path: "**",
+    component: NotFoundComponent
+  }
 ];
 
 @NgModule({
-    imports: [
-        //Passa passa para o router module as rotas para fazer o gerenciamento da aplicação
-        RouterModule.forRoot(routes)
-    ], 
-    exports: [
-        RouterModule
-    ]
+  imports: [
+    //Passa passa para o router module as rotas para fazer o gerenciamento da aplicação
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}
